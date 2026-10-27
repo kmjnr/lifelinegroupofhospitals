@@ -8,6 +8,7 @@ import {
   FOUNDED_YEAR,
 } from "@/content/site";
 import type { Faq } from "@/content/types";
+import type { Post } from "@/content/blog";
 import { canonicalUrl } from "./seo";
 
 /**
@@ -124,6 +125,49 @@ export function faqSchema(faqs: Faq[]) {
       name: f.q,
       acceptedAnswer: { "@type": "Answer", text: f.a },
     })),
+  };
+}
+
+export function blogSchema(posts: Post[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    url: canonicalUrl("/blog"),
+    name: "The Lifeline Health Blog",
+    publisher: { "@id": `${SITE_URL}/#hospital` },
+    inLanguage: "en-KE",
+    blogPost: posts.map((p) => ({
+      "@type": "BlogPosting",
+      headline: p.h1,
+      url: canonicalUrl(`/blog/${p.slug}`),
+      datePublished: p.date,
+      description: p.excerpt,
+      articleSection: p.category,
+    })),
+  };
+}
+
+export function articleSchema(opts: {
+  headline: string;
+  description: string;
+  path: string;
+  dateISO: string;
+  author: string;
+  section: string;
+  image: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: opts.headline,
+    description: opts.description,
+    image: canonicalUrl(opts.image),
+    articleSection: opts.section,
+    datePublished: opts.dateISO,
+    mainEntityOfPage: canonicalUrl(opts.path),
+    author: { "@type": "Organization", name: opts.author },
+    publisher: { "@id": `${SITE_URL}/#hospital` },
+    inLanguage: "en-KE",
   };
 }
 

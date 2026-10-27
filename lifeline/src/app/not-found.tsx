@@ -13,7 +13,7 @@ const LINKS = [
   { href: "/clinics", label: "Our Clinics", desc: "ENT, cardiac, dental, eye care, paediatrics, orthopaedics and physiotherapy." },
   { href: "/services", label: "Hospital Services", desc: "24/7 emergency, ICU, laboratory, radiology, pharmacy, maternity and more." },
   { href: "/contact", label: "Contact & Appointments", desc: "Book an appointment or reach our emergency line any time." },
-  { href: "/health-library", label: "Health Library", desc: "Plain-language guides from our clinical team." },
+  { href: "/blog", label: "Health Blog", desc: "Plain-language guides from our clinical team." },
 ];
 
 export default function NotFound() {

@@ -14,7 +14,7 @@ import { CheckIcon, XIcon } from "./icons";
  * - Touch devices (no cursor to leave): "fast fling upward" heuristic — a
  *   sustained ≥450px upward scroll while deep on the page.
  * - Arming: never during the first seconds of a visit; never on conversion
- *   pages (/contact) or where it would be redundant (/privacy, /health-library);
+ *   pages (/contact) or where it would be redundant (/privacy, /blog);
  *   never while the mobile menu or another scroll-locked overlay is open.
  * - Frequency: at most once per 7 days after a dismissal, never again after a
  *   successful signup. Stored in localStorage.
@@ -28,7 +28,7 @@ import { CheckIcon, XIcon } from "./icons";
 const STORAGE_KEY = "ll:newsletter";
 const COOLDOWN_MS = 7 * 24 * 60 * 60 * 1000;
 const ARM_DELAY_MS = 8000;
-const EXCLUDED_ROUTES = ["/contact", "/privacy", "/health-library"];
+const EXCLUDED_ROUTES = ["/contact", "/privacy", "/blog"];
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 type Store = { status: "seen" | "dismissed" | "subscribed"; at: number };

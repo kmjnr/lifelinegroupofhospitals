@@ -21,6 +21,8 @@ const legacySources: [string, string][] = [
   ["/nutrition-consultancy", "/services/nutrition"],
   ["/ward-services-2", "/services/wards"],
   ["/contact-us", "/contact"],
+  // Blog posts live at /blog now; the old "coming soon" stub moves there.
+  ["/health-library", "/blog"],
 ];
 
 const nextConfig: NextConfig = {

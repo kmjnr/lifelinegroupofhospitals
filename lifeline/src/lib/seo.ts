@@ -1,6 +1,7 @@
 import { SITE_URL } from "@/content/site";
 import { CLINICS } from "@/content/clinics";
 import { SERVICES } from "@/content/services";
+import { POSTS } from "@/content/blog";
 
 /** Canonical absolute URL, trailing-slash-free. */
 export function canonicalUrl(path: string): string {
@@ -105,7 +106,14 @@ export function sitemapEntries(): SitemapEntry[] {
       }),
     ),
     { path: "/gallery", priority: 0.7, changeFrequency: "monthly" },
-    { path: "/health-library", priority: 0.6, changeFrequency: "monthly" },
+    { path: "/blog", priority: 0.7, changeFrequency: "weekly" },
+    ...POSTS.map(
+      (p): SitemapEntry => ({
+        path: `/blog/${p.slug}`,
+        priority: 0.6,
+        changeFrequency: "monthly",
+      }),
+    ),
     { path: "/privacy", priority: 0.3, changeFrequency: "yearly" },
   ];
 }

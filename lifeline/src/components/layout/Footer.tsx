@@ -50,6 +50,7 @@ export function Footer() {
                 ["Specialized Clinics", "/clinics"],
                 ["Services", "/services"],
                 ["Gallery", "/gallery"],
+                ["Health Blog", "/blog"],
                 ["Contact Us", "/contact"],
               ].map(([label, href]) => (
                 <li key={href}>
@@ -134,6 +135,9 @@ export function Footer() {
           <div className="flex flex-wrap gap-4">
             <Link href="/privacy" className="hover:text-white focus-ring rounded">
               Privacy Policy
+            </Link>
+            <Link href="/sitemap.xml" className="hover:text-white focus-ring rounded">
+              Sitemap
             </Link>
             <span>
               This website provides general information and does not replace professional medical
