@@ -1,0 +1,14 @@
+# The Next.js app lives in the `lifeline/` subdirectory of this repo.
+# With `base` set, `publish` is resolved relative to `base`.
+[build]
+  base = "lifeline"
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Runs the app on Netlify's Next.js runtime so server routes
+# (/api/appointment) and middleware-style features work.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
