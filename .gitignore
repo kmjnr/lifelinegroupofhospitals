@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+
+# Next.js build output
+.next/
+out/
+build/
+
+# TypeScript build cache
+*.tsbuildinfo
+
+# Environment files (secrets)
+.env
+.env.*
+!.env.example
+
+# Tool artifacts
+.workbuddy-ai/
+.taste-skill/
+.taste-skill-*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# Deployment
+.vercel

@@ -1,0 +1,163 @@
+@import "tailwindcss";
+
+@theme {
+  /* Design tokens — plan 03-DESIGN-SYSTEM.md */
+  --color-primary: #1565d8;
+  --color-primary-dark: #0e4da8;
+  --color-navy: #0b2447;
+  --color-navy-2: #13315c;
+  --color-accent: #20bfa9;
+  --color-danger: #e23d3d;
+  --color-surface: #f4f8fe;
+  --color-surface-2: #eaf1fb;
+  --color-border-soft: #e3eaf4;
+  --color-ink: #1a2b45;
+  --color-ink-muted: #5d7290;
+  --color-on-dark-muted: #b9c9e0;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-sora), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-card: 0 2px 8px rgba(11, 36, 71, 0.06);
+  --shadow-card-md: 0 8px 24px rgba(11, 36, 71, 0.1);
+  --shadow-card-lg: 0 16px 48px rgba(11, 36, 71, 0.14);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Display type tiers — used by every page H1 and section H2.
+   text-display: standard headlines (≤2 lines at 390px and 1440px).
+   text-display-long: long keyword H1s (department pages); smaller phone floor
+   so keyword-rich H1s stay within two lines.
+   text-heading: section H2s. */
+.text-display {
+  font-size: clamp(2rem, 1.1rem + 3.3vw, 4.0625rem);
+  line-height: 1.08;
+}
+.text-display-long {
+  font-size: clamp(1.75rem, 1rem + 2.6vw, 2.5rem);
+  line-height: 1.14;
+}
+.text-heading {
+  font-size: clamp(1.75rem, 1.3rem + 2vw, 2.75rem);
+  line-height: 1.15;
+}
+
+/* Display type tiers end */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  @apply bg-white text-ink antialiased;
+  font-feature-settings: "cv11", "ss01";
+}
+
+::selection {
+  background: rgba(21, 101, 216, 0.18);
+}
+
+/* Shared utility classes */
+.gradient-navy {
+  background: linear-gradient(118deg, var(--color-navy) 0%, var(--color-navy-2) 100%);
+}
+
+.gradient-soft {
+  background: linear-gradient(180deg, #ffffff 0%, var(--color-surface) 100%);
+}
+
+.focus-ring {
+  outline: none;
+}
+.focus-ring:focus-visible {
+  outline: 3px solid rgba(21, 101, 216, 0.35);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Prose defaults for copy blocks */
+.prose-lifeline p {
+  @apply text-ink leading-relaxed;
+}
+
+/* Mobile menu entry animation */
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.menu-in {
+  animation: menu-in 0.22s ease-out both;
+}
+
+/* Newsletter popup */
+@keyframes popup-scrim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes sheet-in {
+  from {
+    opacity: 0;
+    transform: translateY(56px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes shake {
+  20% {
+    transform: translateX(-5px);
+  }
+  40% {
+    transform: translateX(4px);
+  }
+  60% {
+    transform: translateX(-3px);
+  }
+  80% {
+    transform: translateX(2px);
+  }
+}
+@keyframes success-pop {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
